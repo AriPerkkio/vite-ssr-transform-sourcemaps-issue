@@ -1,7 +1,24 @@
 # vite-ssr-transform-sourcemaps-issue
 
+Start with:
+
 ```sh
 pnpm install
+```
+
+## Execute via Vite
+
+```sh
+cd vite
+
+node --inspect-brk server.mjs
+```
+
+## Execute via Node, simulating Vite
+
+```sh
+cd node
+
 node server.mjs
 
 node --inspect-brk entry.mjs

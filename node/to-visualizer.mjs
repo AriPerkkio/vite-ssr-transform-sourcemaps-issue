@@ -1,34 +1,5 @@
-import { fileURLToPath } from "node:url";
-import { writeFileSync } from "node:fs";
-import { createServer } from "vite";
-
-const server = await createServer({
-  configFile: false,
-  root: fileURLToPath(new URL(".", import.meta.url)),
-  server: { port: 1337 },
-});
-
-await server.listen();
-
-const transformResult = await server.transformRequest("./math.ts", {
-  ssr: true,
-});
-
-const code = `${transformResult.code}
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,${Buffer.from(
-  transformResult.map.toString()
-).toString("base64")}
-`;
-writeFileSync("./transpiled.js", code, "utf-8");
-
-console.log(toVisualizer(transformResult));
-
-console.log("\nRun command:");
-console.log("node --inspect-brk entry.mjs");
-
-server.close();
-
-function toVisualizer(transformResult) {
+// Original code: https://github.com/antfu-collective/vite-plugin-inspect/blob/6c5b6b2c8bdb20883ae3d5d8d94a189300d3daa6/src/client/logic/utils.ts#L59
+export function toVisualizer(transformResult) {
   const { code, map } = transformResult;
   const encoder = new TextEncoder();
 

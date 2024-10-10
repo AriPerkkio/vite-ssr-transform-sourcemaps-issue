@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "packageManager": "pnpm@8.15.9",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^5.2.9"
+    "vite": "^5.4.8"
   }
 }
